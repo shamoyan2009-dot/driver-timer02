@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Водительский Таймер</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 320px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Водительский Таймер</h1>
+    <p>Введите данные и получите напоминание</p>
+
+    <form onsubmit="saveData(event)">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="date" id="date" required>
+
+        <button type="submit">Получить напоминание</button>
+    </form>
+</div>
+
+<script>
+function saveData(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const date = document.getElementById('date').value;
+
+    // сохраняем локально (для прототипа)
+    localStorage.setItem('email', email);
+    localStorage.setItem('date', date);
+
+    // переход на страницу успеха
+    window.location.href = "success.html";
+}
+</script>
+
+</body>
+</html>
